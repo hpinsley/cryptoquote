@@ -22,7 +22,7 @@ export default function Game() {
       case GameStates.NO_PUZZLE:
         return (<NoPuzzle setCypher={setCypherAndPlay} />);
       case GameStates.PLAYING:
-        return (<Playing cypher={cypher} keymap={keymap} setKeyMapping={mapKey} invokeUndo={undo} />)
+        return (<Playing cypher={cypher} keymap={keymap} mapKey={mapKey} invokeUndo={undo} />)
     }
   }
 

@@ -7,7 +7,7 @@ import KeyboardHelp from './KeyboardHelp';
 export type PlayingProps = {
   cypher: string;
   keymap: Map<string, string>
-  setKeyMapping: (k: string, v: string) => void;
+  mapKey: (k: string, v: string) => void;
   invokeUndo: () => void;
 }
 
@@ -61,17 +61,27 @@ export default function Playing(props: PlayingProps) {
       if (selectedKey !== '')
       {
         mapSelectedKeyTo(selectedKey, '')
-        setSelectedKey('')
+        unselectKey();
       }
     }
     else if (k === "BACKSPACE")
     {
-      props.invokeUndo();
+      undo();
     }
+  }
+
+  function unselectKey() {
+    setSelectedKey('');
+  }
+
+  function undo()
+  {
+    unselectKey();
+    props.invokeUndo();
   }
 
   function mapSelectedKeyTo(k: string, v: string)
   {
-    props.setKeyMapping(k, v);
+    props.mapKey(k, v);
   }
 }
