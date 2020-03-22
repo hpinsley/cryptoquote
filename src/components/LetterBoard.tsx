@@ -90,7 +90,7 @@ export default function LetterBoard(props: LetterBoardProps) {
     return (
       <div key={rowIndex}>
         {enclosedLetters}
-        <div key={'clear_' + rowIndex} style={{clear: "both"}} />
+        <div style={{clear: "both"}} />
       </div>
     )
   }
