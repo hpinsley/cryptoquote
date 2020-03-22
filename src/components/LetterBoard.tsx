@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
 import LetterEntry from './LetterEntry'
+import { strict } from 'assert';
 
 export type LetterBoardProps = {
   cypher: string;
@@ -28,7 +29,7 @@ export default function LetterBoard(props: LetterBoardProps) {
     const MaxCharsPerRow = 35;
 
     const lines = breakLines(cypher, MaxCharsPerRow);
-    const rows = lines.map(line => showRow(keymap, selectedKey, line));
+    const rows = lines.map((line, index) => showRow(keymap, selectedKey, line, index));
 
     return (
       <div>
@@ -76,20 +77,20 @@ export default function LetterBoard(props: LetterBoardProps) {
     return str !== ' ';
   }
 
-  function showRow(keymap: Map<string, string>, selectedKey: string, cypher: string) {
+  function showRow(keymap: Map<string, string>, selectedKey: string, cypher: string, rowIndex: number) {
     const letters = cypher.split('');
-    const letterEntries = letters.map(c => <LetterEntry isSelectedKey={c == selectedKey} fromKey={c} toKey={getLetter(keymap, c)} />)
+    const letterEntries = letters.map((c,index) => <LetterEntry key={rowIndex.toString() + "_" + index} isSelectedKey={c === selectedKey} fromKey={c} toKey={getLetter(keymap, c)} />)
     const enclosedLetters = letterEntries.map((cell,index) => (
         <div style={{float: "left"}}
-             key={index}>
+             key={rowIndex.toString() + "_" + index}>
                {cell}
         </div>)
     )
 
     return (
-      <div>
+      <div key={rowIndex}>
         {enclosedLetters}
-        <div style={{clear: "both"}} />
+        <div key={'clear_' + rowIndex} style={{clear: "both"}} />
       </div>
     )
   }
