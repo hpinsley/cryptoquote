@@ -5,7 +5,7 @@ export default function KeyboardHelp()
 {
     return (
       <div>
-        <p>
+        <p style={{fontWeight: "bold"}}>
           To unset a letter, press the SPACEBAR after pressing the letter.
           To invoke UNDO, use the BACKSPACE key.
         </p>
