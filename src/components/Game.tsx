@@ -9,6 +9,7 @@ export default function Game() {
   const [gameState, setGameState] = useState(GameStates.NO_PUZZLE)
   const [cypher, setCypher] = useState('');
   const [keymap, setKeymap] = useState(buildEmptyMap());
+  const [undoBuffer, _] = useState<Map<string,string>[]>([]);
 
   function setCypherAndPlay(encryptedText: string)
   {
@@ -21,10 +22,23 @@ export default function Game() {
       case GameStates.NO_PUZZLE:
         return (<NoPuzzle setCypher={setCypherAndPlay} />);
       case GameStates.PLAYING:
-        return (<Playing cypher={cypher} keymap={keymap} setKeyMapping={setKeyMapping} />)
+        return (<Playing cypher={cypher} keymap={keymap} setKeyMapping={mapKey} invokeUndo={undo} />)
     }
   }
 
+  function undo() {
+    const lastMap = undoBuffer.pop();
+    if (lastMap !== undefined) {
+      setKeymap(lastMap);
+    }
+  }
+
+  function mapKey(k: string, v: string)
+  {
+    setKeyMapping(k, v);
+    undoBuffer.push(keymap);
+  }
+  
   function setKeyMapping(k: string, v: string)
   {
     const newKeyMap:Map<string,string> = new Map<string, string>(keymap)

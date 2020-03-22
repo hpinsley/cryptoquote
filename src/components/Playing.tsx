@@ -7,6 +7,7 @@ export type PlayingProps = {
   cypher: string;
   keymap: Map<string, string>
   setKeyMapping: (k: string, v: string) => void;
+  invokeUndo: () => void;
 }
 
 export default function Playing(props: PlayingProps) {
@@ -27,6 +28,7 @@ export default function Playing(props: PlayingProps) {
     <div ref={focusElementRef} tabIndex={0} className="Playing" onKeyPress={ev => captureKey(ev)} >
       <hr/>
       <KeyMap keymap={props.keymap} selectedKey={selectedKey} />
+      {renderButtons()}
       <hr/>
       <LetterBoard cypher={props.cypher} keymap={props.keymap} selectedKey={selectedKey} />
     </div>
@@ -68,5 +70,14 @@ export default function Playing(props: PlayingProps) {
   function mapSelectedKeyTo(k: string, v: string)
   {
     props.setKeyMapping(k, v);
+  }
+
+  function renderButtons()
+  {
+    return (
+      <div>
+        <button tabIndex={-1} onClick={props.invokeUndo}>Undo</button>
+      </div>
+    )
   }
 }
