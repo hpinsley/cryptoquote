@@ -2,6 +2,7 @@ import React, {useRef, useEffect, useState}  from 'react';
 import '../App.css';
 import KeyMap from './KeyMap';
 import LetterBoard from './LetterBoard';
+import KeyboardHelp from './KeyboardHelp';
 
 export type PlayingProps = {
   cypher: string;
@@ -25,11 +26,9 @@ export default function Playing(props: PlayingProps) {
   const [selectedKey, setSelectedKey] = useState('')
 
   return (
-    <div ref={focusElementRef} tabIndex={0} className="Playing" onKeyPress={ev => captureKey(ev)} >
-      <hr/>
+    <div ref={focusElementRef} tabIndex={0} className="Playing" onKeyDown={ev => captureKey(ev)} >
       <KeyMap keymap={props.keymap} selectedKey={selectedKey} />
-      {renderButtons()}
-      <hr/>
+      <KeyboardHelp />
       <LetterBoard cypher={props.cypher} keymap={props.keymap} selectedKey={selectedKey} />
     </div>
   );
@@ -57,7 +56,7 @@ export default function Playing(props: PlayingProps) {
         setSelectedKey(k);
       }
     }
-    else if (k === " ")
+    else if (k === "ESCAPE")
     {
       if (selectedKey !== '')
       {
@@ -65,19 +64,14 @@ export default function Playing(props: PlayingProps) {
         setSelectedKey('')
       }
     }
+    else if (k === "BACKSPACE")
+    {
+      props.invokeUndo();
+    }
   }
 
   function mapSelectedKeyTo(k: string, v: string)
   {
     props.setKeyMapping(k, v);
-  }
-
-  function renderButtons()
-  {
-    return (
-      <div>
-        <button tabIndex={-1} onClick={props.invokeUndo}>Undo</button>
-      </div>
-    )
   }
 }
