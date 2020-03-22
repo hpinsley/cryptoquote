@@ -10,7 +10,6 @@ export default function NoPuzzle(props:NoPuzzleProps) {
 
   return (
     <div className="NoPuzzle">
-      No puzzle view
       <div>
         Enter the cypher:
       </div>

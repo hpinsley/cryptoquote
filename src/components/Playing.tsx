@@ -24,8 +24,6 @@ export default function Playing(props: PlayingProps) {
 
   return (
     <div ref={focusElementRef} tabIndex={0} className="Playing" onKeyPress={ev => captureKey(ev)} >
-      Playing here
-      <div>Selected key: {selectedKey}</div>
       <hr/>
       <KeyMap keymap={props.keymap} selectedKey={selectedKey} />
       <hr/>
@@ -44,8 +42,8 @@ export default function Playing(props: PlayingProps) {
   function captureKey(ev: React.KeyboardEvent) {
     console.log(`Just got an [${ev.key}]`);
     var k = ev.key.toUpperCase();
-    if (k.length == 1 && k >= "A" && k <= "Z") {
-      if (selectedKey != '') {
+    if (k.length === 1 && k >= "A" && k <= "Z") {
+      if (selectedKey !== '') {
         mapSelectedKeyTo(selectedKey, k)
         setSelectedKey('');
       }
@@ -55,9 +53,9 @@ export default function Playing(props: PlayingProps) {
     }
     else if (k === " ")
     {
-      if (selectedKey != '')
+      if (selectedKey !== '')
       {
-        mapSelectedKeyTo(selectedKey, "")
+        mapSelectedKeyTo(selectedKey, '')
         setSelectedKey('')
       }
     }

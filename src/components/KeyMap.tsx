@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App.css';
+import SingleKeyMapping from './SingleKeyMapping'
 
 export type KeymapProps = {
   keymap: Map<string, string>
@@ -10,12 +11,16 @@ export default function KeyMap(props: KeymapProps) {
 
   return (
     <div>
-      {showKeyMap(props.keymap)}
+      {showKeyMap(props.keymap, props.selectedKey)}
     </div>
   );
 
-  function showKeyMap(keymap: Map<string, string>) {
-    const keys = Array.from(keymap.keys()).map(k => (<td key={k}>{k} = {keymap.get(k)}</td>))
+  function showKeyMap(keymap: Map<string, string>, selectedKey: string) {
+
+    const keys = Array.from(keymap.keys()).map(k =>
+        (<td key={k}>
+          <SingleKeyMapping fromKey={k} toKey={keymap.get(k) || ''} isSelectedKey={k === selectedKey} />
+        </td>))
 
     return (
       <div>
@@ -26,8 +31,6 @@ export default function KeyMap(props: KeymapProps) {
             </tr>
           </tbody>
         </table>
-      <div>
-        Selected key: {props.selectedKey}</div>
       </div>
     )
   }

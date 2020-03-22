@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+table#keymap {
+  border-collapse: separate;
+  border-spacing: 8px 5px;
+  font-size: 32pt;
+  font-family: 'Courier New', Courier, monospace
+}
+
+span.key.selected {
+  color: red;
+}
+
+span.key {
+  color: blue;
+  font-weight: bold;
+}
+
+span.value {
+  color: green;
+  font-weight: bold;
+}
