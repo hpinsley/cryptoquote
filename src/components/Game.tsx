@@ -7,22 +7,21 @@ import Playing from './Playing';
 export default function Game() {
 
   const [gameState, setGameState] = useState(GameStates.NO_PUZZLE)
+  const [cypher, setCypher] = useState('');
 
   function renderView() {
     switch(gameState) {
       case GameStates.NO_PUZZLE:
-        return (<NoPuzzle />);
+        return (<NoPuzzle setCypher={setCypher} />);
       case GameStates.PLAYING:
         return (<Playing />)
     }
-    return (
-      <div>View for {gameState}</div>
-    )
   }
   return (
     <div className="Game">
       Game
       { renderView() }
+      <div>The cypher is {cypher}</div>
     </div>
   );
 }
