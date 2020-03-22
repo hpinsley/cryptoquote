@@ -1,4 +1,4 @@
-import React, {useRef, useEffect}  from 'react';
+import React, {useRef, useEffect, useState}  from 'react';
 import '../App.css';
 
 export type PlayingProps = {
@@ -8,6 +8,8 @@ export type PlayingProps = {
 
 export default function Playing(props: PlayingProps) {
 
+  // We have to use an effect to set the focus to our div so we can capture
+  // keys
   const focusElementRef:any = useRef(null);
 
   useEffect(() => {
@@ -16,17 +18,25 @@ export default function Playing(props: PlayingProps) {
     }
   }, []);
 
+  const [selectedKey, setSelectedKey] = useState('')
+
   return (
     <div ref={focusElementRef} tabIndex={0} className="Playing" onKeyPress={ev => captureKey(ev)} >
       Playing here
       <div>Cypher</div>
       <div>{props.cypher}</div>
+      <div>Selected key: {selectedKey}</div>
+      <hr/>
       {showKeyMap(props.keymap)}
     </div>
   );
 
   function captureKey(ev: React.KeyboardEvent) {
-    console.log(`Just got an ${ev.key}/${ev.keyCode}`);
+    console.log(`Just got an ${ev.key}`);
+    var k = ev.key.toUpperCase();
+    if (k.length == 1 && k >= "A" && k <= "Z") {
+      setSelectedKey(k);
+    }
   }
 
   function getLetter(keymap: Map<string, string>, cypherLetter: string): string {
