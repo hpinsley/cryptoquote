@@ -56,7 +56,7 @@ export default function Playing(props: PlayingProps) {
         setSelectedKey(k);
       }
     }
-    else if (k === "ESCAPE")
+    else if (k === " ")
     {
       if (selectedKey !== '')
       {

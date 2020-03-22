@@ -39,6 +39,8 @@
 
 div.NoPuzzle {
   font-size: 20pt;
+  width: 80vw;
+  margin-left: 10vw;
 }
 
 div.NoPuzzle textarea {
