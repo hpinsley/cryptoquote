@@ -12,7 +12,7 @@ export default function Game() {
 
   function setCypherAndPlay(encryptedText: string)
   {
-    setCypher(encryptedText);
+    setCypher(encryptedText.toUpperCase());
     setGameState(GameStates.PLAYING);
   }
 

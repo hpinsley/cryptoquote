@@ -17,7 +17,7 @@ export default function NoPuzzle(props:NoPuzzleProps) {
         <textarea rows={10} cols={132} value={cypher} onChange={(ev) => setCypher(ev.target.value)} />
       </div>
       <div>
-        <button onClick={() => props.setCypher(cypher)}>Play</button>
+        <button style={{fontSize: "24pt"}} onClick={() => props.setCypher(cypher)}>Play</button>
       </div>
     </div>
   );

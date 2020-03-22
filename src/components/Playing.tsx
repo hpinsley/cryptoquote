@@ -1,6 +1,7 @@
 import React, {useRef, useEffect, useState}  from 'react';
 import '../App.css';
 import KeyMap from './KeyMap';
+import LetterBoard from './LetterBoard';
 
 export type PlayingProps = {
   cypher: string;
@@ -27,18 +28,10 @@ export default function Playing(props: PlayingProps) {
       <hr/>
       <KeyMap keymap={props.keymap} selectedKey={selectedKey} />
       <hr/>
-      {showCypher()}
+      <LetterBoard cypher={props.cypher} keymap={props.keymap} selectedKey={selectedKey} />
     </div>
   );
 
-  function showCypher()
-  {
-    return (
-      <div>
-        {props.cypher}
-      </div>
-    )
-  }
   function captureKey(ev: React.KeyboardEvent) {
     console.log(`Just got an [${ev.key}]`);
     var k = ev.key.toUpperCase();
@@ -65,13 +58,4 @@ export default function Playing(props: PlayingProps) {
   {
     props.setKeyMapping(k, v);
   }
-
-  function getLetter(keymap: Map<string, string>, cypherLetter: string): string {
-    if (keymap.has(cypherLetter.toUpperCase())) {
-      return keymap.get(cypherLetter.toUpperCase())!
-    }
-
-    return cypherLetter;
-  }
-
 }

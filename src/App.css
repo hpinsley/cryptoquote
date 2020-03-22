@@ -37,7 +37,22 @@
   }
 }
 
+div.NoPuzzle {
+  font-size: 20pt;
+}
+
+div.NoPuzzle textarea {
+  font-size: 16pt;
+}
+
 table#keymap {
+  border-collapse: separate;
+  border-spacing: 8px 5px;
+  font-size: 32pt;
+  font-family: 'Courier New', Courier, monospace
+}
+
+table#letterboard {
   border-collapse: separate;
   border-spacing: 8px 5px;
   font-size: 32pt;
