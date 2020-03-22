@@ -21,14 +21,12 @@ export default function Game() {
       case GameStates.NO_PUZZLE:
         return (<NoPuzzle setCypher={setCypherAndPlay} />);
       case GameStates.PLAYING:
-        return (<Playing />)
+        return (<Playing cypher={cypher} keymap={keymap} />)
     }
   }
   return (
     <div className="Game">
-      Game
       { renderView() }
-      <div>The cypher is {cypher}</div>
     </div>
   );
 }
