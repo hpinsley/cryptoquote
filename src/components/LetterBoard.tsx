@@ -79,7 +79,7 @@ export default function LetterBoard(props: LetterBoardProps) {
 
   function showRow(keymap: Map<string, string>, selectedKey: string, cypher: string, rowIndex: number) {
     const letters = cypher.split('');
-    const letterEntries = letters.map((c,index) => <LetterEntry key={rowIndex.toString() + "_" + index} isSelectedKey={c === selectedKey} fromKey={c} toKey={getLetter(keymap, c)} />)
+    const letterEntries = letters.map(c => <LetterEntry isSelectedKey={c === selectedKey} fromKey={c} toKey={getLetter(keymap, c)} />)
     const enclosedLetters = letterEntries.map((cell,index) => (
         <div style={{float: "left"}}
              key={rowIndex.toString() + "_" + index}>
