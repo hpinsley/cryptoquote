@@ -1,5 +1,6 @@
 import React, {useRef, useEffect, useState}  from 'react';
 import '../App.css';
+import KeyMap from './KeyMap';
 
 export type PlayingProps = {
   cypher: string;
@@ -26,7 +27,7 @@ export default function Playing(props: PlayingProps) {
       Playing here
       <div>Selected key: {selectedKey}</div>
       <hr/>
-      {showKeyMap(props.keymap)}
+      <KeyMap keymap={props.keymap} selectedKey={selectedKey} />
       <hr/>
       {showCypher()}
     </div>
@@ -41,14 +42,23 @@ export default function Playing(props: PlayingProps) {
     )
   }
   function captureKey(ev: React.KeyboardEvent) {
-    console.log(`Just got an ${ev.key}`);
+    console.log(`Just got an [${ev.key}]`);
     var k = ev.key.toUpperCase();
     if (k.length == 1 && k >= "A" && k <= "Z") {
       if (selectedKey != '') {
         mapSelectedKeyTo(selectedKey, k)
+        setSelectedKey('');
       }
       else {
         setSelectedKey(k);
+      }
+    }
+    else if (k === " ")
+    {
+      if (selectedKey != '')
+      {
+        mapSelectedKeyTo(selectedKey, "")
+        setSelectedKey('')
       }
     }
   }
@@ -66,19 +76,4 @@ export default function Playing(props: PlayingProps) {
     return cypherLetter;
   }
 
-  function showKeyMap(keymap: Map<string, string>) {
-    const keys = Array.from(keymap.keys()).map(k => (<td key={k}>{k} = {keymap.get(k)}</td>))
-
-    return (
-      <div>
-        <table id="keymap">
-          <tbody>
-            <tr>
-              {keys}
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    )
-  }
 }
