@@ -21,9 +21,17 @@ export default function Game() {
       case GameStates.NO_PUZZLE:
         return (<NoPuzzle setCypher={setCypherAndPlay} />);
       case GameStates.PLAYING:
-        return (<Playing cypher={cypher} keymap={keymap} />)
+        return (<Playing cypher={cypher} keymap={keymap} setKeyMapping={setKeyMapping} />)
     }
   }
+
+  function setKeyMapping(k: string, v: string)
+  {
+    const newKeyMap:Map<string,string> = new Map<string, string>(keymap)
+    newKeyMap.set(k, v);
+    setKeymap(newKeyMap);
+  }
+
   return (
     <div className="Game">
       { renderView() }

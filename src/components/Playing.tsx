@@ -4,6 +4,7 @@ import '../App.css';
 export type PlayingProps = {
   cypher: string;
   keymap: Map<string, string>
+  setKeyMapping: (k: string, v: string) => void;
 }
 
 export default function Playing(props: PlayingProps) {
@@ -23,20 +24,38 @@ export default function Playing(props: PlayingProps) {
   return (
     <div ref={focusElementRef} tabIndex={0} className="Playing" onKeyPress={ev => captureKey(ev)} >
       Playing here
-      <div>Cypher</div>
-      <div>{props.cypher}</div>
       <div>Selected key: {selectedKey}</div>
       <hr/>
       {showKeyMap(props.keymap)}
+      <hr/>
+      {showCypher()}
     </div>
   );
 
+  function showCypher()
+  {
+    return (
+      <div>
+        {props.cypher}
+      </div>
+    )
+  }
   function captureKey(ev: React.KeyboardEvent) {
     console.log(`Just got an ${ev.key}`);
     var k = ev.key.toUpperCase();
     if (k.length == 1 && k >= "A" && k <= "Z") {
-      setSelectedKey(k);
+      if (selectedKey != '') {
+        mapSelectedKeyTo(selectedKey, k)
+      }
+      else {
+        setSelectedKey(k);
+      }
     }
+  }
+
+  function mapSelectedKeyTo(k: string, v: string)
+  {
+    props.setKeyMapping(k, v);
   }
 
   function getLetter(keymap: Map<string, string>, cypherLetter: string): string {
