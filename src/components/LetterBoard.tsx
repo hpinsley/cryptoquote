@@ -27,18 +27,17 @@ export default function LetterBoard(props: LetterBoardProps) {
   function showBoard(keymap: Map<string, string>, selectedKey: string, cypher: string) {
 
     const letters = cypher.split('');
-    const cells = letters.map(c => <LetterEntry isSelectedKey={c == selectedKey} fromKey={c} toKey={getLetter(keymap, c)} />)
-    const tds = cells.map((cell,index) => (<td key={index}>{cell}</td>))
+    const letterEntries = letters.map(c => <LetterEntry isSelectedKey={c == selectedKey} fromKey={c} toKey={getLetter(keymap, c)} />)
+    const enclosedLetters = letterEntries.map((cell,index) => (
+        <div style={{float: "left"}}
+             key={index}>
+               {cell}
+        </div>)
+    )
 
     return (
       <div>
-        <table id="letterboard">
-          <tbody>
-            <tr>
-              {tds}
-            </tr>
-          </tbody>
-        </table>
+        {enclosedLetters}
       </div>
     )
   }
