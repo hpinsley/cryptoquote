@@ -18,11 +18,11 @@ export default function LetterEntry(props: LetterEntryProps) {
         fontSize: "18pt"
         }}>
 
-      <div key="letterkey" style={{height: "30px"}}>
+      <div style={{height: "30px"}}>
         <span className={keyClass}>{props.fromKey}</span>
       </div>
 
-      <div key="lettervalue" style={{height: "30px", marginTop: "5px"}}>
+      <div style={{height: "30px", marginTop: "5px"}}>
         <span className="value">{props.toKey}</span>
       </div>
     </div>
