@@ -32,12 +32,23 @@ export default function Playing(props: PlayingProps) {
     </div>
   );
 
+  function nothingMapsTo(k:string)
+  {
+    const matched = Array.from(props.keymap.values()).find(value => k === value);
+    return matched === undefined;
+  }
+
   function captureKey(ev: React.KeyboardEvent) {
     console.log(`Just got an [${ev.key}]`);
     var k = ev.key.toUpperCase();
     if (k.length === 1 && k >= "A" && k <= "Z") {
       if (selectedKey !== '') {
-        mapSelectedKeyTo(selectedKey, k)
+        // He wants to map the selected key to value k.  Don't let him do it if there is
+        // already something mapped there
+        if (nothingMapsTo(k)) {
+          mapSelectedKeyTo(selectedKey, k)
+        }
+        
         setSelectedKey('');
       }
       else {
