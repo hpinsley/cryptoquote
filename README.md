@@ -46,3 +46,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ## Sample Puzzles ##
 
 - https://www.printable-puzzles.com/printable-cryptograms.php
+
+## Publishing to Github ##
+Following instructions found here: https://dev.to/yuribenjamin/how-to-deploy-react-app-in-github-pages-2a1f
