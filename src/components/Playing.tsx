@@ -25,6 +25,9 @@ export default function Playing(props: PlayingProps) {
 
   const [selectedKey, setSelectedKey] = useState('')
 
+  const remaining = remainingToGuess(props.cypher, props.keymap);
+  console.log(`There are ${remaining} letters left to guess.`);
+
   return (
     <div ref={focusElementRef} tabIndex={0} className="Playing" onKeyDown={ev => captureKey(ev)} >
       <KeyMap keymap={props.keymap} selectedKey={selectedKey} />
@@ -78,6 +81,30 @@ export default function Playing(props: PlayingProps) {
   {
     unselectKey();
     props.invokeUndo();
+  }
+
+  function isLetter(c:string) : Boolean
+  {
+    const upper = c.toUpperCase();
+    return (upper >= 'A' && upper <= 'Z');
+  }
+
+  function remainingToGuess(cypher: string, keyMap: Map<string, string>)
+  {
+    const cypherSet = new Set(Array.from(cypher).filter(isLetter));
+    console.log(`The cypher set has ${cypherSet.size} distinct characters.`);
+    const targetsMapped = new Set(Array.from(keyMap.keys()).filter(k => keyMap.get(k) != ''));
+    console.log(`There are ${targetsMapped.size} distinct mapped characters.`);
+
+    let lettersMatches = 0;
+    cypherSet.forEach(cypherLetter => {
+      if (targetsMapped.has(cypherLetter)) {
+        console.log(`The keymap has ${cypherLetter} so we count it.`)
+        ++lettersMatches;
+      }
+    })
+
+    return cypherSet.size - lettersMatches;
   }
 
   function mapSelectedKeyTo(k: string, v: string)
