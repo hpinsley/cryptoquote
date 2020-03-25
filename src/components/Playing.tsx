@@ -3,6 +3,7 @@ import '../App.css';
 import KeyMap from './KeyMap';
 import LetterBoard from './LetterBoard';
 import KeyboardHelp from './KeyboardHelp';
+import Progress from './Progress';
 
 export type PlayingProps = {
   cypher: string;
@@ -32,6 +33,7 @@ export default function Playing(props: PlayingProps) {
     <div ref={focusElementRef} tabIndex={0} className="Playing" onKeyDown={ev => captureKey(ev)} >
       <KeyMap keymap={props.keymap} selectedKey={selectedKey} />
       <KeyboardHelp />
+      <Progress remaining={remaining} />
       <LetterBoard cypher={props.cypher} keymap={props.keymap} selectedKey={selectedKey} />
     </div>
   );
