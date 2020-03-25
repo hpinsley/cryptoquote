@@ -1,22 +1,23 @@
 {
   "files": {
     "main.css": "/cryptoquote/static/css/main.61758547.chunk.css",
-    "main.js": "/cryptoquote/static/js/main.87512410.chunk.js",
-    "main.js.map": "/cryptoquote/static/js/main.87512410.chunk.js.map",
+    "main.js": "/cryptoquote/static/js/main.87e337bf.chunk.js",
+    "main.js.map": "/cryptoquote/static/js/main.87e337bf.chunk.js.map",
     "runtime-main.js": "/cryptoquote/static/js/runtime-main.27c8035d.js",
     "runtime-main.js.map": "/cryptoquote/static/js/runtime-main.27c8035d.js.map",
-    "static/js/2.928a186f.chunk.js": "/cryptoquote/static/js/2.928a186f.chunk.js",
-    "static/js/2.928a186f.chunk.js.map": "/cryptoquote/static/js/2.928a186f.chunk.js.map",
+    "static/js/2.061da3e8.chunk.js": "/cryptoquote/static/js/2.061da3e8.chunk.js",
+    "static/js/2.061da3e8.chunk.js.map": "/cryptoquote/static/js/2.061da3e8.chunk.js.map",
     "index.html": "/cryptoquote/index.html",
-    "precache-manifest.2b0d8cc426af699f537dc0b5f9b03ae6.js": "/cryptoquote/precache-manifest.2b0d8cc426af699f537dc0b5f9b03ae6.js",
+    "precache-manifest.8a9b9c80fe155d1216854a080929cd42.js": "/cryptoquote/precache-manifest.8a9b9c80fe155d1216854a080929cd42.js",
     "service-worker.js": "/cryptoquote/service-worker.js",
     "static/css/main.61758547.chunk.css.map": "/cryptoquote/static/css/main.61758547.chunk.css.map",
-    "static/js/2.928a186f.chunk.js.LICENSE.txt": "/cryptoquote/static/js/2.928a186f.chunk.js.LICENSE.txt"
+    "static/js/2.061da3e8.chunk.js.LICENSE.txt": "/cryptoquote/static/js/2.061da3e8.chunk.js.LICENSE.txt",
+    "static/media/reward-01.jpg": "/cryptoquote/static/media/reward-01.97b0e411.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.27c8035d.js",
-    "static/js/2.928a186f.chunk.js",
+    "static/js/2.061da3e8.chunk.js",
     "static/css/main.61758547.chunk.css",
-    "static/js/main.87512410.chunk.js"
+    "static/js/main.87e337bf.chunk.js"
   ]
 }
