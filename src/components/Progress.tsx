@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import '../App.css';
 import reward from '../images/reward-01.jpg';
 
@@ -8,9 +8,19 @@ export type ProgressProps = {
 
 export default function Progress(props:ProgressProps) 
 {
-    const [awardShow, setAwardShown] = useState(false);
+    const [awardShown, setAwardShown] = useState(false);
 
-    if (props.remaining === 0 && !awardShow) 
+    useEffect(() => {
+      console.log(`In useEffect callback with remaining = ${props.remaining} and awardShow = ${awardShown}`)
+      if (props.remaining === 0 && !awardShown) 
+      {
+        setTimeout(() => {
+            setAwardShown(true);
+        }, 2500)
+      }
+    });
+
+    if (props.remaining === 0 && !awardShown) 
     {
       return showCompleteAward();
     }
@@ -21,10 +31,9 @@ export default function Progress(props:ProgressProps)
     
     function showCompleteAward()
     {
-      setTimeout(() => setAwardShown(true), 3000);
       return (
         <div>
-            <img src={reward} style={{width: "300px", border:"10px solid black"}} />
+            <img src={reward} style={{width: "300px", borderRadius:"15px", border:"10px solid puple"}} />
         </div>
       );
     }
