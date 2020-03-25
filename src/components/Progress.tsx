@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import '../App.css';
+import reward from '../images/reward-01.jpg';
 
 export type ProgressProps = {
   remaining: number;
@@ -20,10 +21,10 @@ export default function Progress(props:ProgressProps)
     
     function showCompleteAward()
     {
+      setTimeout(() => setAwardShown(true), 3000);
       return (
         <div>
-            <div>COMPLETE</div>
-            <button onClick={() => setAwardShown(true)}>OK</button>
+            <img src={reward} style={{width: "300px", border:"10px solid black"}} />
         </div>
       );
     }
