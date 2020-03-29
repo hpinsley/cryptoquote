@@ -3,6 +3,7 @@ import '../App.css';
 import {GameStates} from '../models/gameModels';
 import NoPuzzle from './NoPuzzle';
 import Playing from './Playing';
+import { encrypt} from '../services/quoteService';
 
 export default function Game() {
 
@@ -17,42 +18,9 @@ export default function Game() {
     setGameState(GameStates.PLAYING);
   }
 
-  function shuffle(array:string[]) 
-  {
-    var currentIndex = array.length;
-    var temporaryValue, randomIndex;
-  
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-  
-      // And swap it with the current element.
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-    }
-  
-    return array;
-  };
-  
   function scramblePlaintextAndPlay(plainText: string)
   {
-    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    
-    const shuffled = shuffle(Array.from(alphabet));
-    const letterArray = Array.from(alphabet);
-
-    const letterMap = new Map<string,string>();
-    for (let i = 0; i < letterArray.length; ++i)
-    {
-      letterMap.set(letterArray[i], shuffled[i])
-    }
-
-    const plainChars = Array.from(plainText.toUpperCase());
-    const mappedChars = plainChars.map(c => letterMap.has(c) ? letterMap.get(c) : c);
-    const encryptedText = mappedChars.join("");
+    const encryptedText = encrypt(plainText);
     console.log(`Plain text: ${plainText}`);
     console.log(`Encrypted: ${encryptedText}`);
     setCypherAndPlay(encryptedText);
