@@ -3,21 +3,25 @@ import '../App.css';
 
 export type NoPuzzleProps = {
   setCypher: (cypher:string) => void;
+  setPlainText: (plainText:string) => void;
 }
 export default function NoPuzzle(props:NoPuzzleProps) {
 
-  const [cypher, setCypher] = useState('');
+  const [text, setText] = useState('');
 
   return (
     <div className="NoPuzzle">
       <div>
-        Enter the cypher:
+        Enter the cypher or plaintext:
       </div>
       <div>
-        <textarea rows={10} cols={80} value={cypher} onChange={(ev) => setCypher(ev.target.value)} />
+        <textarea rows={10} cols={80} value={text} onChange={(ev) => setText(ev.target.value)} />
       </div>
       <div>
-        <button style={{fontSize: "24pt"}} onClick={() => props.setCypher(cypher)}>Play</button>
+        <button style={{fontSize: "24pt"}} onClick={() => props.setCypher(text)}>Play</button>
+      </div>
+      <div>
+        <button style={{fontSize: "24pt"}} onClick={() => props.setPlainText(text)}>Scramble &amp; Play</button>
       </div>
     </div>
   );
