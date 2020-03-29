@@ -1,7 +1,10 @@
-import quotes from '../data/sample-puzzles/puzzles-01'
+import quotes1 from '../data/sample-puzzles/puzzles-01'
+import quotes2 from '../data/sample-puzzles/puzzles-02'
 import { Quotation } from '../models/gameModels';
 
+
 export function GetRandomQuote(): Quotation {
+    const quotes = getAllQuotes();
     const index = Math.floor(Math.random() * quotes.length);
     return quotes[index];
 }
@@ -26,6 +29,17 @@ export function encrypt(plainText: string) : string
   console.log(`Encrypted: ${encryptedText}`);
 
   return encryptedText;
+}
+
+export function getKnownQuotationCount() : number
+{
+  return getAllQuotes().length;
+}
+
+function getAllQuotes() : Quotation[]
+{
+  const quotes = [...quotes1, ...quotes2];
+  return quotes;
 }
 
 function shuffle(array: string[]) {

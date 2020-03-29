@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import '../App.css';
 
 export type NoPuzzleProps = {
+  randomQuoteCount: number;
   setCypher: (cypher:string) => void;
   setPlainText: (plainText:string) => void;
   useRandomQuote: () => void;
@@ -26,7 +27,7 @@ export default function NoPuzzle(props:NoPuzzleProps) {
         <button style={{fontSize: "24pt"}} onClick={() => props.setPlainText(text)}>Scramble &amp; Play</button>
       </div>
       <div>
-        <button style={{fontSize: "24pt"}} onClick={props.useRandomQuote}>Random</button>
+        <button style={{fontSize: "24pt"}} onClick={props.useRandomQuote}>Random (from list of {props.randomQuoteCount})</button>
       </div>
     </div>
   );

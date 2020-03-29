@@ -1,6 +1,6 @@
 import {Quotation} from '../../models/gameModels'
 
-export default <Quotation[]>
+export default
 [
     {
         "plainText": "The greatest glory in living lies not in never falling, but in rising every time we fall.",
@@ -150,4 +150,4 @@ export default <Quotation[]>
         "plainText": "The only person you are destined to become is the person you decide to be.",
         "author": "Ralph Waldo Emerson"
     }
-]
+] as Quotation[];

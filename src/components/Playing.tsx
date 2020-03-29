@@ -93,7 +93,7 @@ export default function Playing(props: PlayingProps) {
   function remainingToGuess(cypher: string, keyMap: Map<string, string>)
   {
     const cypherSet = new Set(Array.from(cypher).filter(isLetter));
-    const targetsMapped = new Set(Array.from(keyMap.keys()).filter(k => keyMap.get(k) != ''));
+    const targetsMapped = new Set(Array.from(keyMap.keys()).filter(k => keyMap.get(k) !== ''));
 
     let lettersMatches = 0;
     cypherSet.forEach(cypherLetter => {

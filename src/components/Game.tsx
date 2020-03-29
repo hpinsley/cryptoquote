@@ -11,7 +11,7 @@ export default function Game() {
   const [gameState, setGameState] = useState(GameStates.NO_PUZZLE)
   const [cypher, setCypher] = useState('');
   const [keymap, setKeymap] = useState(buildEmptyMap());
-  const [undoBuffer, _] = useState<Map<string,string>[]>([]);
+  const [undoBuffer] = useState<Map<string,string>[]>([]);
 
   function setCypherAndPlay(encryptedText: string)
   {
@@ -37,7 +37,7 @@ export default function Game() {
   function renderView() {
     switch(gameState) {
       case GameStates.NO_PUZZLE:
-        return (<NoPuzzle setCypher={setCypherAndPlay} setPlainText={scramblePlaintextAndPlay} useRandomQuote={useRandomQuote} />);
+        return (<NoPuzzle randomQuoteCount={QuoteService.getKnownQuotationCount()} setCypher={setCypherAndPlay} setPlainText={scramblePlaintextAndPlay} useRandomQuote={useRandomQuote} />);
       case GameStates.PLAYING:
         return (<Playing cypher={cypher} keymap={keymap} mapKey={mapKey} invokeUndo={undo} />)
     }

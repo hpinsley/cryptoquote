@@ -33,7 +33,7 @@ export default function Progress(props:ProgressProps)
     {
       return (
         <div>
-            <img src={reward} style={{width: "300px", borderRadius:"15px", border:"10px solid puple"}} />
+            <img src={reward} alt="You won!" style={{width: "300px", borderRadius:"15px", border:"10px solid puple"}} />
         </div>
       );
     }
