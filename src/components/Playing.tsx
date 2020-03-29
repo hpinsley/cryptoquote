@@ -94,14 +94,11 @@ export default function Playing(props: PlayingProps) {
   function remainingToGuess(cypher: string, keyMap: Map<string, string>)
   {
     const cypherSet = new Set(Array.from(cypher).filter(isLetter));
-    console.log(`The cypher set has ${cypherSet.size} distinct characters.`);
     const targetsMapped = new Set(Array.from(keyMap.keys()).filter(k => keyMap.get(k) != ''));
-    console.log(`There are ${targetsMapped.size} distinct mapped characters.`);
 
     let lettersMatches = 0;
     cypherSet.forEach(cypherLetter => {
       if (targetsMapped.has(cypherLetter)) {
-        console.log(`The keymap has ${cypherLetter} so we count it.`)
         ++lettersMatches;
       }
     })

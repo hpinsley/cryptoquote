@@ -4,6 +4,7 @@ import {GameStates} from '../models/gameModels';
 import NoPuzzle from './NoPuzzle';
 import Playing from './Playing';
 import { encrypt} from '../services/quoteService';
+import * as QuoteService from '../services/quoteService'
 
 export default function Game() {
 
@@ -26,10 +27,17 @@ export default function Game() {
     setCypherAndPlay(encryptedText);
   }
 
+  function useRandomQuote()
+  {
+    const quote = QuoteService.GetRandomQuote();
+    const plainText = quote.plainText + (quote.author ? ('-- ' + quote.author) : "");
+    scramblePlaintextAndPlay(plainText);
+  }
+
   function renderView() {
     switch(gameState) {
       case GameStates.NO_PUZZLE:
-        return (<NoPuzzle setCypher={setCypherAndPlay} setPlainText={scramblePlaintextAndPlay} />);
+        return (<NoPuzzle setCypher={setCypherAndPlay} setPlainText={scramblePlaintextAndPlay} useRandomQuote={useRandomQuote} />);
       case GameStates.PLAYING:
         return (<Playing cypher={cypher} keymap={keymap} mapKey={mapKey} invokeUndo={undo} />)
     }
