@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "35f35aa3f286ae6fd360eb9bf95b990a",
+    "revision": "36b68116db639bbfc9a168ad7b6f218d",
     "url": "/cryptoquote/index.html"
   },
   {
-    "revision": "328d95526c0fc37d6507",
+    "revision": "4369ccaad3c4a3d75693",
     "url": "/cryptoquote/static/css/main.61758547.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/cryptoquote/static/js/2.061da3e8.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "328d95526c0fc37d6507",
-    "url": "/cryptoquote/static/js/main.87e337bf.chunk.js"
+    "revision": "4369ccaad3c4a3d75693",
+    "url": "/cryptoquote/static/js/main.bb3990ad.chunk.js"
   },
   {
     "revision": "0cc24f3d80ff85204441",
