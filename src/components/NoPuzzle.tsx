@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import '../App.css';
+import * as QuoteService from '../services/quoteService'
 
 export type NoPuzzleProps = {
   setCypher: (cypher:string) => void;
@@ -8,6 +9,12 @@ export type NoPuzzleProps = {
 export default function NoPuzzle(props:NoPuzzleProps) {
 
   const [text, setText] = useState('');
+
+  function setRandomQuote()
+  {
+    const quote = QuoteService.GetRandomQuote();
+    alert(quote.plainText);
+  }
 
   return (
     <div className="NoPuzzle">
@@ -22,6 +29,9 @@ export default function NoPuzzle(props:NoPuzzleProps) {
       </div>
       <div>
         <button style={{fontSize: "24pt"}} onClick={() => props.setPlainText(text)}>Scramble &amp; Play</button>
+      </div>
+      <div>
+        <button style={{fontSize: "24pt"}} onClick={setRandomQuote}>Random</button>
       </div>
     </div>
   );

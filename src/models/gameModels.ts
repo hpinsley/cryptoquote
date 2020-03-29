@@ -3,3 +3,8 @@ export enum GameStates {
     PLAYING = "PLAYING"
 }
 
+export type Quotation =
+{
+    plainText: string;
+    author?: string;
+}
