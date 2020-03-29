@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/cryptoquote/static/css/main.61758547.chunk.css",
-    "main.js": "/cryptoquote/static/js/main.bb3990ad.chunk.js",
-    "main.js.map": "/cryptoquote/static/js/main.bb3990ad.chunk.js.map",
+    "main.js": "/cryptoquote/static/js/main.4e4c0399.chunk.js",
+    "main.js.map": "/cryptoquote/static/js/main.4e4c0399.chunk.js.map",
     "runtime-main.js": "/cryptoquote/static/js/runtime-main.27c8035d.js",
     "runtime-main.js.map": "/cryptoquote/static/js/runtime-main.27c8035d.js.map",
     "static/js/2.061da3e8.chunk.js": "/cryptoquote/static/js/2.061da3e8.chunk.js",
     "static/js/2.061da3e8.chunk.js.map": "/cryptoquote/static/js/2.061da3e8.chunk.js.map",
     "index.html": "/cryptoquote/index.html",
-    "precache-manifest.4ebb691c322490f9645b87afcbaaf98d.js": "/cryptoquote/precache-manifest.4ebb691c322490f9645b87afcbaaf98d.js",
+    "precache-manifest.ff20c3b42bdccfd1ace033cafe694e36.js": "/cryptoquote/precache-manifest.ff20c3b42bdccfd1ace033cafe694e36.js",
     "service-worker.js": "/cryptoquote/service-worker.js",
     "static/css/main.61758547.chunk.css.map": "/cryptoquote/static/css/main.61758547.chunk.css.map",
     "static/js/2.061da3e8.chunk.js.LICENSE.txt": "/cryptoquote/static/js/2.061da3e8.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.27c8035d.js",
     "static/js/2.061da3e8.chunk.js",
     "static/css/main.61758547.chunk.css",
-    "static/js/main.bb3990ad.chunk.js"
+    "static/js/main.4e4c0399.chunk.js"
   ]
 }
