@@ -27,7 +27,6 @@ export default function Playing(props: PlayingProps) {
   const [selectedKey, setSelectedKey] = useState('')
 
   const remaining = remainingToGuess(props.cypher, props.keymap);
-  console.log(`There are ${remaining} letters left to guess.`);
 
   return (
     <div ref={focusElementRef} tabIndex={0} className="Playing" onKeyDown={ev => captureKey(ev)} >
@@ -45,7 +44,7 @@ export default function Playing(props: PlayingProps) {
   }
 
   function captureKey(ev: React.KeyboardEvent) {
-    console.log(`Just got an [${ev.key}]`);
+    //console.log(`Just got an [${ev.key}]`);
     var k = ev.key.toUpperCase();
     if (k.length === 1 && k >= "A" && k <= "Z") {
       if (selectedKey !== '') {

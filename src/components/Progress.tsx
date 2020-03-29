@@ -11,7 +11,7 @@ export default function Progress(props:ProgressProps)
     const [awardShown, setAwardShown] = useState(false);
 
     useEffect(() => {
-      console.log(`In useEffect callback with remaining = ${props.remaining} and awardShow = ${awardShown}`)
+      //console.log(`In useEffect callback with remaining = ${props.remaining} and awardShow = ${awardShown}`)
       if (props.remaining === 0 && !awardShown) 
       {
         setTimeout(() => {
