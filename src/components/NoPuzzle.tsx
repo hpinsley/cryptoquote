@@ -13,7 +13,7 @@ export default function NoPuzzle(props:NoPuzzleProps) {
 
 
   return (
-    <div className="NoPuzzle">
+    <div className="NoPuzzle" style={{marginTop:"10vh"}}>
       <div>
         Enter the cypher or plaintext:
       </div>
@@ -21,13 +21,9 @@ export default function NoPuzzle(props:NoPuzzleProps) {
         <textarea rows={10} cols={80} value={text} onChange={(ev) => setText(ev.target.value)} />
       </div>
       <div>
-        <button style={{fontSize: "24pt"}} onClick={() => props.setCypher(text)}>Play</button>
-      </div>
-      <div>
-        <button style={{fontSize: "24pt"}} onClick={() => props.setPlainText(text)}>Scramble &amp; Play</button>
-      </div>
-      <div>
-        <button style={{fontSize: "24pt"}} onClick={props.useRandomQuote}>Random (from list of {props.randomQuoteCount})</button>
+        <button className="playButton" disabled={text.length == 0} onClick={() => props.setCypher(text)}>Play</button>
+        <button className="playButton" disabled={text.length == 0} onClick={() => props.setPlainText(text)}>Scramble &amp; Play</button>
+        <button className="playButton" onClick={props.useRandomQuote}>Random (from list of {props.randomQuoteCount})</button>
       </div>
     </div>
   );
