@@ -12,7 +12,9 @@ export type LetterBoardProps = {
 export default function LetterBoard(props: LetterBoardProps) {
 
   return (
-    <div>
+    <div style={{backgroundColor: "#eeeeee", border: "13px gray inset", 
+              borderRadius: "10px", width: "98%", 
+              marginLeft: "auto", marginRight: "auto", marginTop: "10px"}}>
       {showBoard(props.keymap, props.selectedKey, props.cypher)}
     </div>
   );
@@ -88,7 +90,7 @@ export default function LetterBoard(props: LetterBoardProps) {
     )
 
     return (
-      <div key={rowIndex}>
+      <div key={rowIndex} style={{width: "98%", marginLeft: "auto", marginRight: "auto"}}>
         {enclosedLetters}
         <div style={{clear: "both"}} />
       </div>
