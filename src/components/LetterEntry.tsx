@@ -14,7 +14,7 @@ export default function LetterEntry(props: LetterEntryProps) {
   return (
     <div style={{
         width: "32px",
-        height: "80px",
+        height: "70px",
         fontSize: "16pt"
         }}>
 

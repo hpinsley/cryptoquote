@@ -12,8 +12,8 @@ export type LetterBoardProps = {
 export default function LetterBoard(props: LetterBoardProps) {
 
   return (
-    <div style={{backgroundColor: "#eeeeee", border: "13px gray inset", 
-              borderRadius: "10px", width: "98%", 
+    <div style={{backgroundColor: "#eeeeee", border: "6px gray inset", 
+              borderRadius: "8px", width: "98%", 
               marginLeft: "auto", marginRight: "auto", marginTop: "10px"}}>
       {showBoard(props.keymap, props.selectedKey, props.cypher)}
     </div>
