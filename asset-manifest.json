@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/cryptoquote/static/css/main.b193ac7a.chunk.css",
-    "main.js": "/cryptoquote/static/js/main.840d0695.chunk.js",
-    "main.js.map": "/cryptoquote/static/js/main.840d0695.chunk.js.map",
+    "main.css": "/cryptoquote/static/css/main.0440734e.chunk.css",
+    "main.js": "/cryptoquote/static/js/main.ca6a065e.chunk.js",
+    "main.js.map": "/cryptoquote/static/js/main.ca6a065e.chunk.js.map",
     "runtime-main.js": "/cryptoquote/static/js/runtime-main.27c8035d.js",
     "runtime-main.js.map": "/cryptoquote/static/js/runtime-main.27c8035d.js.map",
-    "static/js/2.8a2dcf5d.chunk.js": "/cryptoquote/static/js/2.8a2dcf5d.chunk.js",
-    "static/js/2.8a2dcf5d.chunk.js.map": "/cryptoquote/static/js/2.8a2dcf5d.chunk.js.map",
+    "static/js/2.6b4ed9f9.chunk.js": "/cryptoquote/static/js/2.6b4ed9f9.chunk.js",
+    "static/js/2.6b4ed9f9.chunk.js.map": "/cryptoquote/static/js/2.6b4ed9f9.chunk.js.map",
     "index.html": "/cryptoquote/index.html",
-    "precache-manifest.53f65a94865367d542c1357b88aab6b1.js": "/cryptoquote/precache-manifest.53f65a94865367d542c1357b88aab6b1.js",
+    "precache-manifest.5098908c758e8b0b25b39df53881c708.js": "/cryptoquote/precache-manifest.5098908c758e8b0b25b39df53881c708.js",
     "service-worker.js": "/cryptoquote/service-worker.js",
-    "static/css/main.b193ac7a.chunk.css.map": "/cryptoquote/static/css/main.b193ac7a.chunk.css.map",
-    "static/js/2.8a2dcf5d.chunk.js.LICENSE.txt": "/cryptoquote/static/js/2.8a2dcf5d.chunk.js.LICENSE.txt",
+    "static/css/main.0440734e.chunk.css.map": "/cryptoquote/static/css/main.0440734e.chunk.css.map",
+    "static/js/2.6b4ed9f9.chunk.js.LICENSE.txt": "/cryptoquote/static/js/2.6b4ed9f9.chunk.js.LICENSE.txt",
+    "static/media/fanfare01.wav": "/cryptoquote/static/media/fanfare01.03198a96.wav",
     "static/media/reward-01.jpg": "/cryptoquote/static/media/reward-01.97b0e411.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.27c8035d.js",
-    "static/js/2.8a2dcf5d.chunk.js",
-    "static/css/main.b193ac7a.chunk.css",
-    "static/js/main.840d0695.chunk.js"
+    "static/js/2.6b4ed9f9.chunk.js",
+    "static/css/main.0440734e.chunk.css",
+    "static/js/main.ca6a065e.chunk.js"
   ]
 }
