@@ -1,5 +1,6 @@
 import quotes1 from '../data/sample-puzzles/puzzles-01'
 import quotes2 from '../data/sample-puzzles/puzzles-02'
+import quotes3 from '../data/sample-puzzles/puzzles-03'
 import { Quotation } from '../models/gameModels';
 
 
@@ -38,7 +39,7 @@ export function getKnownQuotationCount() : number
 
 function getAllQuotes() : Quotation[]
 {
-  const quotes = [...quotes1, ...quotes2];
+  const quotes = [...quotes1, ...quotes2, ...quotes3];
   return quotes;
 }
 
