@@ -81,6 +81,7 @@ button {
   color: white;
   font-family: 'Lato', sans-serif;
   padding: 10px;
+  font-weight: bold;
 }
 
 button:disabled {
