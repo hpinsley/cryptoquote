@@ -89,5 +89,6 @@ button:disabled {
 
 button.playButton {
   font-size: 18pt;
-  width: 24vw;
+  width: 22vw;
+  margin-left: 2vw;
 }
