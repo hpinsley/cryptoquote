@@ -11,7 +11,15 @@ export default function Game() {
   const [gameState, setGameState] = useState(GameStates.NO_PUZZLE)
   const [cypher, setCypher] = useState('');
   const [keymap, setKeymap] = useState(buildEmptyMap());
-  const [undoBuffer] = useState<Map<string,string>[]>([]);
+  const [undoBuffer, setUndoBuffer] = useState<Map<string,string>[]>([]);
+
+  function resetAll()
+  {
+    setGameState(GameStates.NO_PUZZLE);
+    setCypher('');
+    setKeymap(buildEmptyMap());
+    setUndoBuffer([]);
+  }
 
   function setCypherAndPlay(encryptedText: string)
   {
@@ -34,12 +42,22 @@ export default function Game() {
     scramblePlaintextAndPlay(plainText);
   }
 
+  function startNewGame() {
+    resetAll();
+  }
+
   function renderView() {
     switch(gameState) {
       case GameStates.NO_PUZZLE:
         return (<NoPuzzle randomQuoteCount={QuoteService.getKnownQuotationCount()} setCypher={setCypherAndPlay} setPlainText={scramblePlaintextAndPlay} useRandomQuote={useRandomQuote} />);
       case GameStates.PLAYING:
-        return (<Playing cypher={cypher} keymap={keymap} mapKey={mapKey} invokeUndo={undo} />)
+        return (<Playing 
+                  cypher={cypher} 
+                  keymap={keymap} 
+                  mapKey={mapKey} 
+                  invokeUndo={undo} 
+                  startNewGame={startNewGame} />
+                )
     }
   }
 

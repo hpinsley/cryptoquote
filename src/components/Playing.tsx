@@ -4,12 +4,14 @@ import KeyMap from './KeyMap';
 import LetterBoard from './LetterBoard';
 import KeyboardHelp from './KeyboardHelp';
 import Progress from './Progress';
+import GameControl from './GameControl';
 
 export type PlayingProps = {
   cypher: string;
   keymap: Map<string, string>
   mapKey: (k: string, v: string) => void;
   invokeUndo: () => void;
+  startNewGame: () => void;
 }
 
 export default function Playing(props: PlayingProps) {
@@ -32,10 +34,25 @@ export default function Playing(props: PlayingProps) {
     <div ref={focusElementRef} tabIndex={0} className="Playing" onKeyDown={ev => captureKey(ev)} >
       <KeyMap keymap={props.keymap} selectedKey={selectedKey} />
       <KeyboardHelp />
-      <Progress remaining={remaining} />
+      {renderControl()}
       <LetterBoard cypher={props.cypher} keymap={props.keymap} selectedKey={selectedKey} />
     </div>
   );
+
+  function renderControl()
+  {
+    return (
+      <div style={{width: "90vw", margin:"auto"}}>
+        <div style={{float: "left"}}>
+          <Progress remaining={remaining} />
+        </div>
+        <div style={{float: "right"}}>
+          <GameControl startNewGame={props.startNewGame} />
+        </div>
+        <div style={{clear: "both"}} />
+      </div>
+    );
+  }
 
   function nothingMapsTo(k:string)
   {

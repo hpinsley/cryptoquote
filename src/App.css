@@ -74,3 +74,11 @@ span.value {
   color: green;
   font-weight: bold;
 }
+
+button {
+  background-color: #7fccde;
+  border-radius: 10px;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  padding: 10px;
+}

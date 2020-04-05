@@ -40,7 +40,7 @@ export default function Progress(props:ProgressProps)
     
     function showInProgress(remaining: number)
     {
-      return <div style={{fontWeight: "bold"}}>You have {remaining} letters left to guess.</div>
+      return <div style={{fontWeight: "bold", fontFamily: "sans-serif"}}>You have {remaining} letters left to guess.</div>
     }
 }
 
