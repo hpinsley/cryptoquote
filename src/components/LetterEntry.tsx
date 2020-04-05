@@ -13,16 +13,16 @@ export default function LetterEntry(props: LetterEntryProps) {
 
   return (
     <div style={{
-        width: "42px",
-        height: "100px",
-        fontSize: "18pt"
+        width: "32px",
+        height: "80px",
+        fontSize: "16pt"
         }}>
 
-      <div style={{height: "30px"}}>
+      <div style={{height: "20px"}}>
         <span className={keyClass}>{props.fromKey}</span>
       </div>
 
-      <div style={{height: "30px", marginTop: "5px"}}>
+      <div style={{height: "20px", marginTop: "5px"}}>
         <span className="value">{props.toKey}</span>
       </div>
     </div>
