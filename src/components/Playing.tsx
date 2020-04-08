@@ -12,6 +12,7 @@ export type PlayingProps = {
   mapKey: (k: string, v: string) => void;
   invokeUndo: () => void;
   startNewGame: () => void;
+  clearGuesses: () => void;
 }
 
 export default function Playing(props: PlayingProps) {
@@ -47,7 +48,7 @@ export default function Playing(props: PlayingProps) {
           <Progress remaining={remaining} />
         </div>
         <div style={{float: "right"}}>
-          <GameControl startNewGame={props.startNewGame} />
+          <GameControl clearGuesses={props.clearGuesses} startNewGame={props.startNewGame} />
         </div>
         <div style={{clear: "both"}} />
       </div>
@@ -70,7 +71,7 @@ export default function Playing(props: PlayingProps) {
         if (nothingMapsTo(k)) {
           mapSelectedKeyTo(selectedKey, k)
         }
-        
+
         setSelectedKey('');
       }
       else {

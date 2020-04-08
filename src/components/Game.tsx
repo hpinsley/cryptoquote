@@ -21,6 +21,12 @@ export default function Game() {
     setUndoBuffer([]);
   }
 
+  function clearGuesses()
+  {
+    setKeymap(buildEmptyMap());
+    setUndoBuffer([]);
+  }
+
   function setCypherAndPlay(encryptedText: string)
   {
     setCypher(encryptedText.toUpperCase());
@@ -51,11 +57,12 @@ export default function Game() {
       case GameStates.NO_PUZZLE:
         return (<NoPuzzle randomQuoteCount={QuoteService.getKnownQuotationCount()} setCypher={setCypherAndPlay} setPlainText={scramblePlaintextAndPlay} useRandomQuote={useRandomQuote} />);
       case GameStates.PLAYING:
-        return (<Playing 
-                  cypher={cypher} 
-                  keymap={keymap} 
-                  mapKey={mapKey} 
-                  invokeUndo={undo} 
+        return (<Playing
+                  cypher={cypher}
+                  keymap={keymap}
+                  mapKey={mapKey}
+                  invokeUndo={undo}
+                  clearGuesses={clearGuesses}
                   startNewGame={startNewGame} />
                 )
     }
@@ -73,7 +80,7 @@ export default function Game() {
     setKeyMapping(k, v);
     undoBuffer.push(keymap);
   }
-  
+
   function setKeyMapping(k: string, v: string)
   {
     const newKeyMap:Map<string,string> = new Map<string, string>(keymap)

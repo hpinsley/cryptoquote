@@ -21,8 +21,8 @@ export default function NoPuzzle(props:NoPuzzleProps) {
         <textarea rows={10} cols={80} value={text} onChange={(ev) => setText(ev.target.value)} />
       </div>
       <div>
-        <button className="playButton" disabled={text.length == 0} onClick={() => props.setCypher(text)}>Play</button>
-        <button className="playButton" disabled={text.length == 0} onClick={() => props.setPlainText(text)}>Scramble &amp; Play</button>
+        <button className="playButton" disabled={text.length === 0} onClick={() => props.setCypher(text)}>Play</button>
+        <button className="playButton" disabled={text.length === 0} onClick={() => props.setPlainText(text)}>Scramble &amp; Play</button>
         <button className="playButton" onClick={props.useRandomQuote}>Random (from list of {props.randomQuoteCount})</button>
       </div>
     </div>
