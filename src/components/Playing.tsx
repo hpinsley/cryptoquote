@@ -21,10 +21,21 @@ export default function Playing(props: PlayingProps) {
   // keys
   const focusElementRef:any = useRef(null);
 
-  useEffect(() => {
+  function setFocusToPage()
+  {
     if (focusElementRef && focusElementRef.current) {
       focusElementRef.current.focus();
     }
+  }
+
+  function clearGuessesAndSetFocusToPage()
+  {
+    props.clearGuesses();
+    setFocusToPage();
+  }
+
+  useEffect(() => {
+    setFocusToPage();
   }, []);
 
   const [selectedKey, setSelectedKey] = useState('')
@@ -48,7 +59,7 @@ export default function Playing(props: PlayingProps) {
           <Progress remaining={remaining} />
         </div>
         <div style={{float: "right"}}>
-          <GameControl clearGuesses={props.clearGuesses} startNewGame={props.startNewGame} />
+          <GameControl clearGuesses={clearGuessesAndSetFocusToPage} startNewGame={props.startNewGame} />
         </div>
         <div style={{clear: "both"}} />
       </div>
