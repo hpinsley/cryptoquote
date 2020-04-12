@@ -16,13 +16,13 @@ const fanfare = new UIfx(
   }
 )
 
-export default function Progress(props:ProgressProps) 
+export default function Progress(props:ProgressProps)
 {
     const [awardShown, setAwardShown] = useState(false);
 
     useEffect(() => {
       //console.log(`In useEffect callback with remaining = ${props.remaining} and awardShow = ${awardShown}`)
-      if (props.remaining === 0 && !awardShown) 
+      if (props.remaining === 0 && !awardShown)
       {
         fanfare.play(1.0);
         setTimeout(() => {
@@ -31,7 +31,7 @@ export default function Progress(props:ProgressProps)
       }
     });
 
-    if (props.remaining === 0 && !awardShown) 
+    if (props.remaining === 0 && !awardShown)
     {
       return showCompleteAward();
     }
@@ -39,16 +39,16 @@ export default function Progress(props:ProgressProps)
     {
       return showInProgress(props.remaining);
     }
-    
+
     function showCompleteAward()
     {
       return (
-        <div>
+        <div style={{width:"90vw", margin:"auto"}}>
             <img src={reward} alt="You won!" style={{width: "300px", borderRadius:"15px", border:"10px solid puple"}} />
         </div>
       );
     }
-    
+
     function showInProgress(remaining: number)
     {
       return <div style={{fontWeight: "bold", fontFamily: "sans-serif"}}>You have {remaining} letters left to guess.</div>
